@@ -169,16 +169,16 @@ body {
 }
 
 .hero-image {
-    width: 80px !important;
-    height: 80px !important;
-    max-width: 80px !important;
-    max-height: 80px !important;
+    width: 2px !important;
+    height: 2px !important;
+    max-width: 2px !important;
+    max-height: 2px !important;
     border-radius: 50%;
     object-fit: cover;
-    margin: 0 auto 1rem;
+    margin: 0 auto 0.5rem;
     display: block;
-    border: 2px solid var(--primary-color);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 0;
+    box-shadow: none;
     animation: fadeInUp 0.8s ease;
 }
 
