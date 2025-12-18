@@ -169,8 +169,10 @@ body {
 }
 
 .hero-image {
-    width: 200px;
-    height: 200px;
+    width: 200px !important;
+    height: 200px !important;
+    max-width: 200px !important;
+    max-height: 200px !important;
     border-radius: 50%;
     object-fit: cover;
     margin: 0 auto 2rem;
@@ -306,8 +308,10 @@ section {
 }
 
 .about-image {
-    width: 250px;
-    height: 250px;
+    width: 250px !important;
+    height: 250px !important;
+    max-width: 250px !important;
+    max-height: 250px !important;
     border-radius: 20px;
     object-fit: cover;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
