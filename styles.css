@@ -446,22 +446,76 @@ section {
     background: var(--dark-bg);
 }
 
-.certifications-content {
-    max-width: 600px;
-    margin: 2rem auto 0;
-    text-align: center;
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
-.certifications-content p {
+.certification-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    transition: var(--transition);
+    border: 1px solid rgba(37, 99, 235, 0.1);
+}
+
+.certification-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
+}
+
+.certification-header {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.certification-header i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-top: 0.5rem;
+}
+
+.certification-header h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+.certification-issuer {
     color: var(--text-secondary);
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
 }
 
-.certifications-content .btn {
+.certification-date {
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.certifications-footer {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.certification-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1rem;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    transition: var(--transition);
+}
+
+.certification-link:hover {
+    color: var(--accent);
+    text-decoration: underline;
 }
 
 /* Projects Section */
@@ -686,7 +740,8 @@ section {
 
     .skills-grid,
     .projects-grid,
-    .education-grid {
+    .education-grid,
+    .certifications-grid {
         grid-template-columns: 1fr;
     }
 
