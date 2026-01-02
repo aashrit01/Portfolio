@@ -117,5 +117,84 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Accessibility Features: Zoom and Focus Mode
+(function() {
+    // Text Zoom Functionality
+    let fontSizeMultiplier = parseFloat(localStorage.getItem('fontSizeMultiplier')) || 1;
+    const minZoom = 0.8;
+    const maxZoom = 2.0;
+    const zoomStep = 0.1;
+
+    function updateZoom() {
+        document.documentElement.style.setProperty('--font-size-multiplier', fontSizeMultiplier);
+        localStorage.setItem('fontSizeMultiplier', fontSizeMultiplier);
+    }
+
+    // Initialize zoom on page load
+    updateZoom();
+
+    // Zoom In
+    const zoomInBtn = document.getElementById('zoomIn');
+    if (zoomInBtn) {
+        zoomInBtn.addEventListener('click', () => {
+            if (fontSizeMultiplier < maxZoom) {
+                fontSizeMultiplier = Math.min(fontSizeMultiplier + zoomStep, maxZoom);
+                updateZoom();
+            }
+        });
+    }
+
+    // Zoom Out
+    const zoomOutBtn = document.getElementById('zoomOut');
+    if (zoomOutBtn) {
+        zoomOutBtn.addEventListener('click', () => {
+            if (fontSizeMultiplier > minZoom) {
+                fontSizeMultiplier = Math.max(fontSizeMultiplier - zoomStep, minZoom);
+                updateZoom();
+            }
+        });
+    }
+
+    // Reset Zoom
+    const resetZoomBtn = document.getElementById('resetZoom');
+    if (resetZoomBtn) {
+        resetZoomBtn.addEventListener('click', () => {
+            fontSizeMultiplier = 1;
+            updateZoom();
+        });
+    }
+
+    // Focus Mode
+    const focusModeBtn = document.getElementById('focusMode');
+    let isFocusMode = localStorage.getItem('focusMode') === 'true';
+
+    function toggleFocusMode() {
+        isFocusMode = !isFocusMode;
+        if (isFocusMode) {
+            document.body.classList.add('focus-mode');
+            focusModeBtn.innerHTML = '<i class="fas fa-eye-slash"></i>';
+            focusModeBtn.title = 'Exit Focus Mode';
+        } else {
+            document.body.classList.remove('focus-mode');
+            focusModeBtn.innerHTML = '<i class="fas fa-eye"></i>';
+            focusModeBtn.title = 'Focus Mode';
+        }
+        localStorage.setItem('focusMode', isFocusMode);
+    }
+
+    // Initialize focus mode
+    if (isFocusMode) {
+        document.body.classList.add('focus-mode');
+        if (focusModeBtn) {
+            focusModeBtn.innerHTML = '<i class="fas fa-eye-slash"></i>';
+            focusModeBtn.title = 'Exit Focus Mode';
+        }
+    }
+
+    if (focusModeBtn) {
+        focusModeBtn.addEventListener('click', toggleFocusMode);
+    }
+})();
+
 console.log('Portfolio loaded successfully! 🚀');
 
