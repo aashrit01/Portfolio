@@ -841,5 +841,17 @@ section {
         width: 150px;
         height: 150px;
     }
+
+    .accessibility-toolbar {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.4rem;
+    }
+
+    .accessibility-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
 }
 
