@@ -163,37 +163,6 @@ window.addEventListener('scroll', () => {
             updateZoom();
         });
     }
-
-    // Focus Mode
-    const focusModeBtn = document.getElementById('focusMode');
-    let isFocusMode = localStorage.getItem('focusMode') === 'true';
-
-    function toggleFocusMode() {
-        isFocusMode = !isFocusMode;
-        if (isFocusMode) {
-            document.body.classList.add('focus-mode');
-            focusModeBtn.innerHTML = '<i class="fas fa-eye-slash"></i>';
-            focusModeBtn.title = 'Exit Focus Mode';
-        } else {
-            document.body.classList.remove('focus-mode');
-            focusModeBtn.innerHTML = '<i class="fas fa-eye"></i>';
-            focusModeBtn.title = 'Focus Mode';
-        }
-        localStorage.setItem('focusMode', isFocusMode);
-    }
-
-    // Initialize focus mode
-    if (isFocusMode) {
-        document.body.classList.add('focus-mode');
-        if (focusModeBtn) {
-            focusModeBtn.innerHTML = '<i class="fas fa-eye-slash"></i>';
-            focusModeBtn.title = 'Exit Focus Mode';
-        }
-    }
-
-    if (focusModeBtn) {
-        focusModeBtn.addEventListener('click', toggleFocusMode);
-    }
 })();
 
 console.log('Portfolio loaded successfully! 🚀');
